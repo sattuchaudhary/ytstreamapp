@@ -193,17 +193,17 @@ router.get('/youtube/callback', async (req, res) => {
         picture: channelInfo.snippet.thumbnails.default.url
       };
 
-      res.redirect('https://ytstreamapp.vercel.app');
+      res.redirect('https://ytsattu.netlify.app/');
     } catch (apiError) {
       console.error('YouTube API Error:', apiError.message);
       if (apiError.message.includes('accessNotConfigured')) {
         console.log('Please enable YouTube Data API v3 in Google Cloud Console');
       }
-      res.redirect('https://ytstreamapp.vercel.app/error');
+      res.redirect('https://ytsattu.netlify.app//error');
     }
   } catch (error) {
     console.error('Auth Error:', error.message);
-    res.redirect('https://ytstreamapp.vercel.app/error');
+    res.redirect('https://ytsattu.netlify.app/error');
   }
 });
 
