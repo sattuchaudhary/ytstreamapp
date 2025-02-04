@@ -9,6 +9,10 @@ const activeStreams = new Map();
 
 const initializeYouTube = async () => {
   try {
+    if (!process.env.YOUTUBE_CLIENT_ID || !process.env.YOUTUBE_CLIENT_SECRET) {
+      throw new Error('YouTube credentials not configured');
+    }
+
     const oauth2Client = new google.auth.OAuth2(
       process.env.YOUTUBE_CLIENT_ID,
       process.env.YOUTUBE_CLIENT_SECRET,

@@ -40,7 +40,9 @@ setInterval(() => {
 // अपलोड स्टोरेज कॉन्फ़िगरेशन
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadDir = path.join(__dirname, '../../uploads');
+    const uploadDir = process.env.NODE_ENV === 'production' 
+      ? '/opt/render/project/src/uploads'
+      : path.join(__dirname, '../../uploads');
     // अगर डायरेक्टरी नहीं है तो बनाएं
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
