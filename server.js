@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true, limit: '500mb' }));
 
 // CORS configuration
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://your-frontend-url.vercel.app'],
+  origin: ['http://localhost:3000', 'https://ytsattu.netlify.app/'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
